@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_popupwindow_customermanager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imageView_popwindow_customerview_face"
+        android:layout_width="70dp"
+        android:layout_height="110dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:src="@drawable/nopace" />
+
+    <TextView
+        android:id="@+id/textView_popwindow_customerview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView_popwindow_customerview_face"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/imageView_popwindow_customerview_face"
+        android:text="테스트"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView_popwindow_customerview_age"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/imageView_popwindow_customerview_sex"
+        android:layout_toRightOf="@+id/imageView_popwindow_customerview_sex"
+        android:src="@drawable/age10" />
+
+    <ImageView
+        android:id="@+id/imageView_popwindow_customerview_sex"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/textView_popwindow_customerview_name"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/textView_popwindow_customerview_name"
+        android:src="@drawable/male" />
+
+    <TextView
+        android:id="@+id/label_popwindow_customerview_vistDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignLeft="@+id/textView_popwindow_customerview_name"
+        android:layout_below="@+id/textView_popwindow_customerview_name"
+        android:text="@string/VistDate"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/label_customerList_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/label_popwindow_customerview_vistDate"
+        android:layout_below="@+id/label_popwindow_customerview_vistDate"
+        android:text="@string/memo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/textView_popwindow_customerview_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_popwindow_customerview_name"
+        android:layout_below="@+id/label_customerList_memo"
+        android:maxHeight="40dp"
+        android:maxWidth="230dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView_popwindow_customerview_vistDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/label_popwindow_customerview_vistDate"
+        android:layout_toRightOf="@+id/label_popwindow_customerview_vistDate"
+        android:text="0000-00-00"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

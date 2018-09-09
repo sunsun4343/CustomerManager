@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_customerList_customer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView_customerList_face"
+        android:layout_width="54dp"
+        android:layout_height="85dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/nopace" />
+
+    <TextView
+        android:id="@+id/textView_customerList_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView_customerList_face"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/imageView_customerList_face"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/label_customerList_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_customerList_name"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/imageView_customerList_face"
+        android:text="@string/HP"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/label_customerList_vist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/label_customerList_hp"
+        android:layout_below="@+id/label_customerList_hp"
+        android:layout_marginRight="5dp"
+        android:text="@string/Vist"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/label_customerList_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_customerList_vist"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/imageView_customerList_face"
+        android:text="@string/amount"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/textView_customerList_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/label_customerList_vist"
+        android:layout_toRightOf="@+id/label_customerList_hp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_customerList_vistCnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_customerList_hp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/label_customerList_vist"
+        android:text="@string/zero"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/red" />
+
+    <TextView
+        android:id="@+id/label_customerList_vistDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_customerList_vistCnt"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/textView_customerList_vistCnt"
+        android:text="@string/VistDate"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/textView_customerList_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/label_customerList_amount"
+        android:layout_alignBottom="@+id/label_customerList_amount"
+        android:layout_toRightOf="@+id/label_customerList_amount"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/textView_customerList_vistDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_customerList_hp"
+        android:layout_toRightOf="@+id/label_customerList_vistDate"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/imageView_customerList_age"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/imageView_customerList_sex"
+        android:layout_toRightOf="@+id/imageView_customerList_sex"
+        android:src="@drawable/age10" />
+
+    <ImageView
+        android:id="@+id/imageView_customerList_sex"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/textView_customerList_name"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/textView_customerList_name"
+        android:src="@drawable/male" />
+
+    <TextView
+        android:id="@+id/textView_customerList_dday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/red" />
+
+</RelativeLayout>

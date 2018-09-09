@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ts.utill.customermanager.CustomerListActivity" >
+
+    <item
+        android:id="@+id/action_chek"
+        android:icon="@drawable/chek"
+        android:orderInCategory="0"
+        android:title="@string/action_chek"
+        yourapp:showAsAction="always"/>
+</menu>

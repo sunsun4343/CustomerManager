@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom|center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/graph_statistics_rodchart_space"
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:gravity="bottom|center"
+        android:weightSum="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/graph_statistics_rodchart_rod"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/chartcolor1"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TextView_statistics_rodchart_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:maxLength="8"
+        android:text="2014/12"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView_statistics_rodchart_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:text="100020000"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</LinearLayout>

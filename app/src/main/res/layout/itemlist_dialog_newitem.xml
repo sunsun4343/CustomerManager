@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp" >
+
+    <TextView
+        android:id="@+id/label_itemList_dialog_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:focusable="false"
+        android:text="@string/number"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_itemList_dialog_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/label_itemList_dialog_number"
+        android:focusable="false"
+        android:text="@string/zero"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/label_itemList_dialog_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/label_itemList_dialog_number"
+        android:text="@string/group"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/spinner_itemList_dialog_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_itemList_dialog_number"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/label_itemList_dialog_number" />
+
+    <TextView
+        android:id="@+id/label_itemList_dialog_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spinner_itemList_dialog_group"
+        android:focusable="false"
+        android:text="@string/name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/editText_itemList_dialog_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"        
+        android:layout_alignLeft="@+id/spinner_itemList_dialog_group"
+        android:layout_below="@+id/spinner_itemList_dialog_group"
+        android:ems="10"
+        android:maxLength="12" />
+
+    <EditText
+        android:id="@+id/editText_itemList_dialog_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_itemList_dialog_name"
+        android:layout_below="@+id/editText_itemList_dialog_name"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="12" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/label_itemList_dialog_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/editText_itemList_dialog_price"
+        android:focusable="false"
+        android:text="@string/price"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <CheckBox
+        android:id="@+id/checkBox_itemList_dialog_unvisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_itemList_dialog_price"
+        android:text="@string/unvisible" />
+
+</RelativeLayout>

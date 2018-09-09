@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="brown">#846f5c</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#ffff00</color>
+    <color name="gray">#b1b1b1</color>
+    <color name="red">#FF4545</color>
+    <color name="blue">#4848FF</color>
+    <color name="green">#e3ffb5</color>
+    <color name="black">#000000</color>
+
+    <color name="chartcolor1">#87E573</color>
+    <color name="chartcolor2">#76C7F4</color>
+    <color name="chartcolor3">#FCBE6B</color>
+    <color name="chartcolor4">#E6F458</color>
+    <color name="chartcolor5">#F478B0</color>
+    <color name="chartcolor6">#E573F9</color>
+    <color name="chartcolor7">#7676FF</color>
+    <color name="chartcolor8">#FF7878</color>
+</resources>

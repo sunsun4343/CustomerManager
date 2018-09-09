@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/editText_customerView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/imageView_customerView_face"
+        android:ems="10"
+        android:maxLength="12"
+        android:hint="@string/name" >
+
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:id="@+id/imageView_customerView_face"
+        android:layout_width="70dp"
+        android:layout_height="110dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:src="@drawable/nopace" />
+
+    <EditText
+        android:id="@+id/editText_customerView_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_customerView_name"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editText_customerView_name"
+        android:ems="10"
+        android:maxLength="13"
+        android:hint="@string/HP"
+        android:inputType="phone" />
+
+    <LinearLayout
+        android:id="@+id/layout_customerView_vistandamount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText_customerView_memo"
+        android:background="@color/green" >
+
+        <TextView
+            android:id="@+id/label_customerView_vist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/Vist"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView_customerView_vistCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:id="@+id/label_customerView_totalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/amount"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView_customerView_totalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blue" />
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right" >
+
+            <ImageView
+                android:id="@+id/imageView_customerView_newSale"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="3dp"
+                android:src="@drawable/newsale" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+	<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layout_customerView_vistandamount"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/listView_customerView_slaeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+
+    </LinearLayout>
+
+	<TextView
+	    android:id="@+id/label_customerView_age"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/imageView_customerView_sex"
+	    android:layout_marginLeft="17dp"
+	    android:layout_toRightOf="@+id/imageView_customerView_sex"
+	    android:text="@string/age"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<ImageView
+	    android:id="@+id/imageView_customerView_sex"
+	    android:layout_width="30dp"
+	    android:layout_height="30dp"
+	    android:layout_marginTop="5dp"
+	    android:layout_marginLeft="5dp"
+	    android:layout_below="@+id/editText_customerView_hp"
+	    android:layout_toRightOf="@+id/label_customerView_sex"
+	    android:src="@drawable/male" />
+
+	<TextView
+	    android:id="@+id/label_customerView_sex"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="5dp"
+	    android:layout_alignBottom="@+id/imageView_customerView_sex"
+	    android:layout_alignLeft="@+id/editText_customerView_hp"
+	    android:text="@string/sex"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<EditText
+	    android:id="@+id/editText_customerView_memo"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/imageView_customerView_face"
+	    android:layout_alignParentRight="true"
+	    android:layout_below="@+id/imageView_customerView_face"
+	    android:ems="10"
+	    android:hint="@string/memo"
+	    android:inputType="textMultiLine"
+	    android:maxLines="5"
+	    android:minLines="2" />
+
+	<ImageView
+	    android:id="@+id/imageView_customerView_age"
+	    android:layout_width="41dp"
+	    android:layout_height="30dp"
+	   	android:layout_marginTop="5dp"
+	    android:layout_marginLeft="5dp"
+	    android:layout_alignBottom="@+id/label_customerView_age"
+	    android:layout_toRightOf="@+id/label_customerView_age"
+	    android:src="@drawable/age10" />
+
+</RelativeLayout>
