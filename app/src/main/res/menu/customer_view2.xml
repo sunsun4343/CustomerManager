@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ts.utill.customermanager.CustomerListActivity" >
+      
+    <item
+        android:id="@+id/action_statistics"
+        android:icon="@drawable/statistics"
+        android:orderInCategory="0"
+        android:title="@string/statistics"
+        yourapp:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/delete"
+        android:orderInCategory="0"
+        android:title="@string/action_delete"
+        yourapp:showAsAction="always"/>
+    <item
+        android:id="@+id/action_chek"
+        android:icon="@drawable/chek"
+        android:orderInCategory="0"
+        android:title="@string/edit"
+        yourapp:showAsAction="always"/>
+</menu>

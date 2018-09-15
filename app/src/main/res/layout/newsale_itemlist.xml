@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_newSale_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView_newSale_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/imageView_newSale_plus"
+        android:layout_toLeftOf="@+id/imageView_newSale_plus"
+        android:text="@string/zero"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/textView_newSale_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:text="@string/zero"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/textView_newSale_ItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_newSale_number"
+        android:layout_alignBottom="@+id/textView_newSale_number"
+        android:layout_toRightOf="@+id/textView_newSale_number"
+        android:text="test"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/ImageView_newSale_minus"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/minus" />
+
+    <TextView
+        android:id="@+id/TextView_newSale_amount"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ImageView_newSale_minus"
+        android:layout_toLeftOf="@+id/ImageView_newSale_minus"
+        android:ems="10"
+        android:gravity="right"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/imageView_newSale_plus"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/TextView_newSale_amount"
+        android:layout_toLeftOf="@+id/TextView_newSale_amount"
+        android:src="@drawable/plus" />
+
+</RelativeLayout>

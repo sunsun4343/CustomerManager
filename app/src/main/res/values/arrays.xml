@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="sort" >
+	    <item>이름순</item>
+	    <item>방문순</item>
+	    <item>최근순</item>
+	    <item>매출순</item>
+	</string-array>
+	
+	<string-array name="setting" >
+	    <item>설정 - 상품설정</item>
+	    <item>설정 - 등급설정</item>
+	    <item>설정 - 기타설정</item>
+	    <item>DB - DB 초기화</item>
+	    <item>DB - 사진 파일 삭제</item>
+	    <item>DB - CSV 내보내기</item>
+	    <item>DB - CSV 가져오기</item>
+	    <item>DB - CSV 외부전송</item>
+	    <item>DB - CSV 편집</item>
+	    <item>기타 - 도움말</item>
+	    <item>기타 - 제작자 And App</item>
+	    <item>기타 - 공지사항</item>
+	    <item>기타 - 버그신고 및 문의</item>
+	</string-array>
+	
+	<string-array name="statistics" >
+	    <item>매출 변화량</item>
+	    <item>항목별 비율</item>
+	</string-array>
+	
+	<string-array name="command_photo" >
+		<item>크게보기</item>
+		<item>사진첩</item>
+	    <item>변경-카메라</item>
+	    <item>변경-앨범</item>
+	    <item>삭제</item>
+	    <item>취소</item>
+	</string-array>
+	
+	<string-array name="ratio_article" >
+	    <item>상품</item>
+	    <item>성별</item>
+	    <item>연령</item>
+	    <item>요일</item>
+	    <!-- 
+	    <item>등급</item>
+	    <item>시간</item>
+	    -->
+	</string-array>
+	
+	<string-array name="ratio_option1" >
+	    <item>매출</item>
+	    <item>건수</item>
+	</string-array>
+	
+	<string-array name="ratio_option2" >
+	    <item>매출</item>
+	    <item>고객</item>
+	</string-array>
+	
+	<string-array name="variation_term" >
+	    <item>월별</item>
+	    <item>일별</item>
+	</string-array>
+	
+	<string-array name="variation_article" >
+	    <item>매출</item>
+	    <!-- <item>건수</item> -->
+	</string-array>
+	
+	<string-array name="variation_option" >
+	    <item>전체</item>
+	</string-array>
+	
+	<string-array name="week" >
+	    <item>일요일</item>
+	    <item>월요일</item>
+	    <item>화요일</item>
+	    <item>수요일</item>
+		<item>목요일</item>
+		<item>금요일</item>
+		<item>토요일</item>
+	</string-array>
+</resources>

@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ts.utill.customermanager.CustomerListActivity" >
+    
+    <item
+        android:id="@+id/action_statistics"
+        android:icon="@drawable/statistics"
+        android:orderInCategory="0"
+        android:title="@string/statistics"
+        yourapp:showAsAction="always"/>
+    
+    <item
+        android:id="@+id/action_newCustomer"
+        android:icon="@drawable/newcustomer"
+        android:orderInCategory="0"
+        android:title="@string/action_newCustomer"
+        yourapp:showAsAction="always"/>
+    
+        <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/setting"
+        android:orderInCategory="1"
+        android:title="@string/action_settings"
+        yourapp:showAsAction="always"/>
+</menu>

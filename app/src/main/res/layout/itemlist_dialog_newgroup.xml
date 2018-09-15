@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp" >
+
+    <TextView
+        android:id="@+id/label_itemList_dialog_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:text="@string/number"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:focusable="false"/>
+
+    <TextView
+        android:id="@+id/textView_itemList_dialog_groupNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/label_itemList_dialog_number"
+        android:text="@string/zero"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:focusable="false" />
+
+    <EditText
+        android:id="@+id/editText_itemList_dialog_groupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_itemList_dialog_groupNumber"
+        android:layout_below="@+id/textView_itemList_dialog_groupNumber"
+        android:ems="10" 
+        android:maxLength="12">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/label_itemList_dialog_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_itemList_dialog_groupName"
+        android:layout_alignBottom="@+id/editText_itemList_dialog_groupName"
+        android:layout_alignParentLeft="true"
+        android:text="@string/name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:focusable="false" />
+
+</RelativeLayout>

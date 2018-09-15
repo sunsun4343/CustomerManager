@@ -1,0 +1,117 @@
+<resources>
+
+
+<string name="notice_context">공지사항\n
+
+
+Ver 2.2\n
+-DB구조 변경으로 첫 실행시 DB구조 변경이 실행됩니다.\n
+-상품분류 기능이 추가되었습니다.\n
+-상품숨김 기능이 추가되었습니다.\n
+-폰번호 검색이 추가되었습니다.\n
+-통계 기간설정 기능이 추가되었습니다.\n
+-앱 업데이트 후 첫 실행시 자동으로 csv가 백업됩니다.\n
+-통계 날자표시 버그, 최근순 정렬 버그가 수정되었습니다.\n
+-메모에 줄바꿈 상태로 csv를 내보낸뒤 다시 가져올시 오류가 발생하여 가져와지지 않는 버그를 수정하였습니다.
+이미 내보내기한 csv에는 적용되지 않으며 복구를 원할시 개발자에게 문의바랍니다.\n
+\n
+Ver 2.1\n
+고객명, 메모, 상품명, 매출메모 등에 ,(반점)을 입력한 상태의 데이터를 CSV로 내보낸후
+가져오기시 오류가 발생하여 오류 시점 이후로 데이터가 로딩되지 않는 버그를 수정하였습니다.\n
+단, 반점이 사용된 CSV파일을 가져올시 같은 에러가 발생합니다. \n
+다시 CSV를 내보낸후 사용하셔야 합니다. \n
+기타 문제로 불가능시 CSV파일과 함께 메일로 문의하시면 조치해 드리겠습니다.\n
+\n
+Ver 2.0\n
+1.9버전의 고객추가시 500개의 데이터가 추가되는 버그가 발생하였습니다.\n
+해당문제로 인해 불편을 드려 죄송합니다. 현재 수정완료 되어 정상적으로 이용이 가능합니다.\n
+다만 이미 추가되어 고객데이터가 비정상적으로 늘어난 경우 다음과 같이 조치해 주시기 바랍니다.\n
+1.이미 백업해둔 CSV를 가져온다.\n
+2.이미 백업해둔 CSV가 없거나 손실되는 데이터가 있을시 현재 DB를 CSV내보내기로 내보낸뒤 설정창에서 CSV 편집메뉴나 기타 편집도구를 이용하여 늘어난 고객데이터를 삭제후 저장, CSV를 가져온다.\n
+3. 2번내용을 하기 어려운경우 설정창에서 현재 DB를 CSV를 내보내고 CSV외부전송 메뉴를 통해 개발자에게 메일을 보낸다.\n
+4. 내용이 이해가 되지 않거나 기타 사항으로 어려운경우 개발자에게 메일 또는 메신저 등으로 문의한다.
+
+</string>
+    <string name="inquiry_context">E-mail : sunsun4343@naver.com\n
+버그신고 및 건의사항을 받습니다.</string>
+    <string name="app_name">고객 관리자</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Customer">고객</string>
+    <string name="zero">0</string>
+    <string name="HP">HP</string>
+    <string name="Vist">방문</string>
+    <string name="VistDate">방문일</string>
+    <string name="amount">구매금</string>
+    <string name="action_newCustomer">새로운 고객</string>
+    <string name="sex">성별</string>
+    <string name="age">나이</string>
+    <string name="date">날짜</string>
+    <string name="customerList">고객목록</string>
+    <string name="action_chek">확인</string>
+    <string name="setting">설정</string>
+    <string name="itemList">상품목록</string>
+    <string name="newcustomer">새로운 고객</string>
+    <string name="memo">메모</string>
+    <string name="action_newItem">새로운 상품</string>
+    <string name="action_newGroup">새로운 분류</string>
+    <string name="number">번호</string>
+    <string name="name">이름</string>
+    <string name="price">가격</string>
+    <string name="itemsetting">상품설정</string>
+    <string name="needitemsetting">상품설정이 필요합니다.</string>
+    <string name="later">나중에</string>
+    <string name="newsale">새로운 판매</string>
+    <string name="completion">완료</string>
+    <string name="searchhint">고객이름, 전화번호로 검색</string>
+    <string name="edit">수정</string>
+    <string name="cancel">취소</string>
+    <string name="register">등록</string>
+    <string name="edititem">상품 수정</string>
+    <string name="newitem">새로운 상품</string>
+    <string name="update">업데이트 내용</string>
+    <string name="action_delete">삭제</string>
+    <string name="delete_Q">정말 삭제 하시겠습니까?</string>
+    <string name="reset_Q">정말 삭제 하시겠습니까?\n초기화 전 DB백업을 권장합니다.\n주의! 사진파일의 경우 삭제되지 않습니다.</string>
+    <string name="resetphoto_Q">사진파일을 모두 삭제 합니다.\n삭제 후에는 복구가 불가능합니다.\n 정말 삭제 하시겠습니까?</string>
+    <string name="resetsave_Q">csv파일을 덮어 쓰려합니다.\n 정말 저장 하시겠습니까?</string>
+    <string name="groupdel_Q">분류를 삭제시 해당 분류내 상품들은 미분류로 이동됩니다.\n정말 삭제 하시겠습니까?</string>
+    <string name="needfilename">파일명을 입력하세요.</string>
+    <string name="save">저장</string>
+    <string name="preferitem">선호 상품</string>
+    <string name="statistics">통계</string>
+    <string name="warning">경고</string>
+    <string name="ready">준비중</string>
+    <string name="ready_context">준비중입니다.</string>
+    <string name="needreset">DB초기화가 필요합니다.</string>
+    <string name="variation">매출변화량 통계</string>
+    <string name="ratio">항목별비율 통계</string>
+    <string name="term">기간</string>
+    <string name="article">항목</string>
+    <string name="option">옵션</string>
+    <string name="rank">순</string>
+    <string name="value">값</string>
+    <string name="ration">비율</string>
+    <string name="backuprecommand">백업 건의</string>
+    <string name="backupcontext">일주일이상 자료를 백업하지 않았습니다. \n백업을 권장합니다.</string>
+    <string name="backup">백업</string>
+    <string name="othersetting">기타설정</string>
+    <string name="agenotview">나이감추기</string>
+    <string name="notice">공지사항</string>
+    <string name="inquiry">버그신고 및 문의</string>
+    <string name="title_activity_csvedit">CSV 편집</string>
+    <string name="group">분류</string>
+    <string name="unvisible">상품숨김</string>
+    <string name="editgroup">분류 수정</string>
+    <string name="startdate">시작일</string>
+    <string name="enddate">종료일</string>
+    <string name="month1">1개월</string>
+    <string name="month3">3개월</string>
+    <string name="month6">6개월</string>
+    <string name="month12">12개월</string>
+    <string name="month18">18개월</string>
+    <string name="month24">24개월</string>
+    <string name="allterm">모든 기간</string>
+    <string name="point">Point</string>
+    <string name="groupvisible">판매목록 그룹표시</string>
+</resources>

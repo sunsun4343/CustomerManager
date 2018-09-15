@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ts.utill.customermanager">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".CustomerListActivity"
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
+            android:name=".CustomerViewActivity"
+            android:icon="@drawable/customer"
+            android:label="@string/newcustomer"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:icon="@drawable/setting"
+            android:label="@string/setting" >
+        </activity>
+        <activity
+            android:name=".OtherSettingActivity"
+            android:icon="@drawable/setting"
+            android:label="@string/othersetting" >
+        </activity>
+        <activity
+            android:name=".CSVEditActivity"
+            android:icon="@drawable/item"
+            android:label="@string/title_activity_csvedit" >
+        </activity>
+
+
+        <activity
+            android:name=".NewSaleActivity"
+            android:icon="@drawable/newsale"
+            android:label="@string/newsale" >
+        </activity>
+        <activity
+            android:name=".ItemListActivity"
+            android:icon="@drawable/item"
+            android:label="@string/itemList" >
+        </activity>
+        <activity
+            android:name=".PhotoViewActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".GalleryActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".CustomerStatisticsActivity"
+            android:icon="@drawable/statistics"
+            android:label="@string/statistics" >
+        </activity>
+        <activity
+            android:name=".StatisticsListActivity"
+            android:icon="@drawable/statistics"
+            android:label="@string/statistics" >
+        </activity>
+        <activity
+            android:name=".StatisticsVariationActivity"
+            android:icon="@drawable/statistics"
+            android:label="@string/variation" >
+        </activity>
+        <activity
+            android:name=".StatisticsRatioActivity"
+            android:icon="@drawable/statistics"
+            android:label="@string/ratio" >
+        </activity>
+
+    </application>
+
+</manifest>
