@@ -82,16 +82,12 @@ public class CustomerListActivity extends AppCompatActivity {
         if (versioncode < VERSION_CODE) {
             customerDB.CSVExport(this,"AUTO-VerCode " + VERSION_CODE );
 
-            Toast.makeText(CustomerListActivity.this, "���ø����̼� ���� ������Ʈ�� ���� CSV�� �ڵ� ����Ǿ����ϴ�.", Toast.LENGTH_LONG).show();
+            Toast.makeText(CustomerListActivity.this, "어플리케이션 버전 업데이트로 인해 CSV가 자동 백업되었습니다.", Toast.LENGTH_LONG).show();
         }
 
         SharedPreferences.Editor edit = pref.edit();
         edit.putInt("version", VERSION_CODE);
         edit.commit();
-    }
-
-    void Update_DB(){
-
     }
 
     TextView textView_customerList_customerCnt;

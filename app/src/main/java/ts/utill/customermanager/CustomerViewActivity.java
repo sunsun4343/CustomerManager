@@ -94,7 +94,7 @@ public class CustomerViewActivity extends AppCompatActivity{
 			customer = customerDB.getCustomer(idx_customer);
 			view_customer = (Customer)customer.clone();
 			
-			this.setTitle(customer.getName() + " ����");
+			this.setTitle(customer.getName() + " 고객님");
 			
 			String fileChk =CustomerDB.filepath + customer.getIdx_customer() + ".jpg";
 			File file = new File(fileChk);

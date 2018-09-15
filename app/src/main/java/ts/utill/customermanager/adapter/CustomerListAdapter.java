@@ -116,7 +116,7 @@ public class CustomerListAdapter extends BaseAdapter {
 			textView_customerList_dday.setText("");
 		}else{
 			textView_customerList_vistDate.setText(customerDB.ToDate(arSrc.get(position).getLastVistDate()));
-			textView_customerList_dday.setText(customerDB.getDDay(arSrc.get(position).getLastVistDate()) + "����");
+			textView_customerList_dday.setText(customerDB.getDDay(arSrc.get(position).getLastVistDate()) + "일전");
 		}
 		textView_customerList_amount.setText(customerDB.toThousand(arSrc.get(position).getAmount()));
 		

@@ -2,6 +2,8 @@
 
 
 <string name="notice_context">공지사항\n
+
+
 Ver 2.2\n
 -DB구조 변경으로 첫 실행시 DB구조 변경이 실행됩니다.\n
 -상품분류 기능이 추가되었습니다.\n
@@ -31,7 +33,6 @@ Ver 2.0\n
 
 </string>
     <string name="inquiry_context">E-mail : sunsun4343@naver.com\n
-카카오톡 : leesunsun\n
 버그신고 및 건의사항을 받습니다.</string>
     <string name="app_name">고객 관리자</string>
     <string name="hello_world">Hello world!</string>

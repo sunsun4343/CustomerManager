@@ -57,7 +57,7 @@ public class ItemListActivity extends AppCompatActivity {
 				}
 			}
 		}
-		ItemViewList.add(new ItemView(new ItemGroup(0, "�̺з�")));
+		ItemViewList.add(new ItemView(new ItemGroup(0, "미분류")));
 		for (Item item : customerDB.getItemList()) {
 			if(item.getIdx_Group() == 0){
 				ItemViewList.add(new ItemView(item));
@@ -92,7 +92,7 @@ public class ItemListActivity extends AppCompatActivity {
 			ArrayList<ItemGroup> ItemGroupList = customerDB.getItemGroupList();
 			String groupname[]  = new String[ItemGroupList.size() + 1];
 			
-			groupname[0] = new String("�̺з�");
+			groupname[0] = new String("미분류");
 			for (int i = 0; i < ItemGroupList.size(); i++) {
 				groupname[i+1] = ItemGroupList.get(i).getName();
 			}

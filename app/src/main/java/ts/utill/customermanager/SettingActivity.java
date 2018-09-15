@@ -281,7 +281,7 @@ public class SettingActivity extends AppCompatActivity{
 	                    info.activityInfo.name.toLowerCase().contains(type) ) {
 	                share.putExtra(Intent.EXTRA_SUBJECT,  "고객관리자 CSV 백업");
 	                share.putExtra(Intent.EXTRA_TEXT,     filename);
-	                share.putExtra(Intent.EXTRA_EMAIL, new String[]{"sunsun4343@naver.com"});  //받는사람
+	                share.putExtra(Intent.EXTRA_EMAIL, new String[]{" "});  //받는사람
 	                share.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:" + CustomerDB.filepath + filename)); // Optional, just if you wanna share an image.
 	                share.setPackage(info.activityInfo.packageName);
 	                found = true;
