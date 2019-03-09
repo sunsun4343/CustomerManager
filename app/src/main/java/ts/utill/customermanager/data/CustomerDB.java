@@ -12,6 +12,8 @@ import java.util.GregorianCalendar;
 
 import ts.utill.customermanager.CustomerListActivity;
 import ts.utill.customermanager.R;
+
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -20,8 +22,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
 public class CustomerDB {
@@ -39,7 +46,7 @@ public class CustomerDB {
 	//to CSV 
 	final static String itemlist_split = ";";
 	final static String itemlist_split_amount = ":";
-	public final static String filepath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/customermanager/";
+	public final static String filepath = Environment.getDataDirectory().getAbsolutePath() + "/data/ts.utill.customermanager/files/customermanager/";
 
 	//to Image
 	int[] imageSex = { R.drawable.male , R.drawable.famale };
@@ -336,6 +343,46 @@ public class CustomerDB {
 		}
 	}
 
+	public  void JsonExport(Context context, String filename){
+		try {
+			//OutputStreamWriter out = new OutputStreamWriter(openFileOutput(filename +  ".csv", 0));
+			File directory = new File(CustomerDB.filepath);
+			if (!directory.exists()) {
+				directory.mkdirs();
+			}
+
+			CustomerDBJson customerDBJson = new CustomerDBJson();
+			customerDBJson.DATABASE_VERSION = CustomerDBHelper.DATABASE_VERSION;
+			customerDBJson.CustomersList = CustomersList;
+			customerDBJson.ItemList = ItemList;
+			customerDBJson.ItemGroupList = ItemGroupList;
+
+			Gson gson = new GsonBuilder().create();
+
+			String json = gson.toJson(customerDBJson);
+
+			File fileCacheItem = new File(CustomerDB.filepath + filename + ".json");
+			fileCacheItem.createNewFile();
+
+			SimpleDateFormat dateForm = new SimpleDateFormat("yyMMdd");
+			Calendar calendar = Calendar.getInstance();
+
+			OutputStream out = new FileOutputStream(fileCacheItem);
+
+			StringBuffer buf = new StringBuffer();
+			out.write(json.getBytes());
+			out.close();
+
+			Toast.makeText(context, "Save " + CustomerDB.filepath + filename + ".json\n"
+					+"이 백업되었습니다.", Toast.LENGTH_LONG).show();
+
+
+		} catch (Throwable t) {
+			Toast.makeText(context, "오류가 발생하여 추출하지 못했습니다. 개발자에게 문의 하세요. \n" + "Err " + t.toString(), Toast.LENGTH_LONG).show();
+			Log.d("TestG", "Err " + t.toString());
+		}
+	}
+
 	private String BanJumCheck(String str){
 
 		String ban = "、";
@@ -608,6 +655,20 @@ public class CustomerDB {
 	}
 
 
+	public void setCustomersList(ArrayList<Customer> CustomersList)
+	{
+		this.CustomersList = CustomersList;
+	}
+
+	public void setItemList(ArrayList<Item> ItemList)
+	{
+		this.ItemList = ItemList;
+	}
+
+	public void setItemGroupList(ArrayList<ItemGroup> ItemGroupList)
+	{
+		this.ItemGroupList = ItemGroupList;
+	}
 
 	//find Get
 	public Customer getCustomer(int idx_customer){
@@ -846,6 +907,14 @@ public class CustomerDB {
 
 		//Memory
 		getCustomer(idx_customer).getSaleList().add(new Sale(idx_sale,idx_customer,getDateTimeM(date),ToSaleItem(itemlist),memo));
+	}
+
+	public void Insert_Sale(int idx_sale, int idx_customer, Calendar date, String itemlist, String memo) {
+		//DB
+		DB_Insert_Sale(idx_sale, idx_customer, date, itemlist, memo);
+
+		//Memory
+		getCustomer(idx_customer).getSaleList().add(new Sale(idx_sale,idx_customer,date,ToSaleItem(itemlist),memo));
 	}
 
 	public void Update_Sale(Sale sale, Sale view_sale) {

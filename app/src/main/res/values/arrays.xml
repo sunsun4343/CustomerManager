@@ -13,11 +13,16 @@
 	    <item>설정 - 기타설정</item>
 	    <item>DB - DB 초기화</item>
 	    <item>DB - 사진 파일 삭제</item>
-	    <item>DB - CSV 내보내기</item>
+	    <!--<item>DB - CSV 내보내기</item>-->
 	    <item>DB - CSV 가져오기</item>
-	    <item>DB - CSV 외부전송</item>
-	    <item>DB - CSV 편집</item>
-	    <item>기타 - 도움말</item>
+	    <!--<item>DB - CSV 외부전송</item>-->
+	    <!--<item>DB - CSV 편집</item>-->
+
+		<item>DB - Json 내보내기</item>
+		<item>DB - Json 가져오기</item>
+		<item>DB - Json 외부전송</item>
+
+		<item>기타 - 도움말</item>
 	    <item>기타 - 제작자 And App</item>
 	    <item>기타 - 공지사항</item>
 	    <item>기타 - 버그신고 및 문의</item>
