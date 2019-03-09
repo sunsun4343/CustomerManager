@@ -320,23 +320,23 @@ public class SettingActivity extends AppCompatActivity{
 //					.create()
 //					.show();
 //					break;
-				case 10: // 도움말
+				case 9: // 도움말
 					Uri uri = Uri.parse("http://blog.naver.com/sunsun4343/220108349570");
 					Intent it  = new Intent(Intent.ACTION_VIEW,uri);
 					startActivity(it);
 					break;
-				case 11: // 제작자 앤 앱
+				case 10: // 제작자 앤 앱
 					Intent marketLaunch = new Intent(Intent.ACTION_VIEW); 
 					marketLaunch.setData(Uri.parse("market://search?q=pub:이선선")); 
 					startActivity(marketLaunch);
 					break;
-				case 12: // 공지사항
+				case 11: // 공지사항
 					new AlertDialog.Builder(SettingActivity.this)
 					.setTitle(string.notice)
 					.setMessage(string.notice_context)
 					.show();
 					break;
-				case 13: // 문의
+				case 12: // 문의
 					new AlertDialog.Builder(SettingActivity.this)
 					.setTitle(string.inquiry)
 					.setMessage(string.inquiry_context)

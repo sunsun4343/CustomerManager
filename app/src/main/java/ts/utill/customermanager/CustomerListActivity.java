@@ -32,8 +32,8 @@ public class CustomerListActivity extends AppCompatActivity {
     private static final String LOGTAG = "BannerTypeXML1";
     private BannerAdView adView = null;
 
-    public final static int VERSION_CODE = 12;
-    final int NOTICE_NUM = 3;
+    public final static int VERSION_CODE = 18;
+    final int NOTICE_NUM = 5;
 
     CustomerDB customerDB = CustomerDB.getInstence();
     UserSetting userSetting = UserSetting.getInstance();
@@ -81,7 +81,7 @@ public class CustomerListActivity extends AppCompatActivity {
 
         if (versioncode < VERSION_CODE) {
             customerDB.CSVExport(this,"AUTO-VerCode " + VERSION_CODE );
-
+            customerDB.JsonExport(this,"AUTO-VerCode " + VERSION_CODE );
             Toast.makeText(CustomerListActivity.this, "어플리케이션 버전 업데이트로 인해 CSV가 자동 백업되었습니다.", Toast.LENGTH_LONG).show();
         }
 
