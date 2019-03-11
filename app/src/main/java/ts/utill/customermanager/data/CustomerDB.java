@@ -46,7 +46,8 @@ public class CustomerDB {
 	//to CSV 
 	final static String itemlist_split = ";";
 	final static String itemlist_split_amount = ":";
-	public final static String filepath = Environment.getDataDirectory().getAbsolutePath() + "/data/ts.utill.customermanager/files/customermanager/";
+	public final static String filepath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/customermanager/";
+	//public final static String filepath = Environment.getDataDirectory().getAbsolutePath() + "/data/ts.utill.customermanager/files/customermanager/";
 
 	//to Image
 	int[] imageSex = { R.drawable.male , R.drawable.famale };

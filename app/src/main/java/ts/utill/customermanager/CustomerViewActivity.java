@@ -8,19 +8,26 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -63,12 +70,16 @@ public class CustomerViewActivity extends AppCompatActivity{
 	TextView textView_customerView_totalAmount;
 	
 	ImageView imageView_customerView_face;
-	
+
+	Context context;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_customer_view);
-	
+
+		context = this;
+
 		Intent intent = getIntent();
 		isModeNew = intent.getBooleanExtra("modeNew", true);
 		
@@ -162,7 +173,10 @@ public class CustomerViewActivity extends AppCompatActivity{
 					file = new File(CustomerDB.filepath + customer.getIdx_customer() + "_high.jpg");
 					file.delete();
 					imageView_customerView_face.setImageResource(R.drawable.nopace);
-				}				
+				}
+
+                private static final int PICK_FROM_GALLERY = 4;
+
 				private void photoAlbum() {
 			        File file = new File(CustomerDB.filepath);
 			        File file_gallery = new File(CustomerDB.filepath + "gallery" + customer.getIdx_customer() + "/");
@@ -174,36 +188,74 @@ public class CustomerViewActivity extends AppCompatActivity{
 			        if (!file_gallery.exists()) {
 			            file.mkdirs();
 			        }
-					
-			  		Intent intent = new Intent(Intent.ACTION_PICK);
-			  		intent.setType(Images.Media.CONTENT_TYPE);
-			  		//intent.putExtra("crop","true");
-			  		intent.setData(Images.Media.EXTERNAL_CONTENT_URI);
-			  		startActivityForResult(intent, REQUEST_PHOTO_ALBUM);
+
+                    try {
+                        if (ActivityCompat.checkSelfPermission(CustomerViewActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(CustomerViewActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PICK_FROM_GALLERY);
+                        } else {
+                            Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+//
+//			  		Intent intent = new Intent(Intent.ACTION_PICK);
+//			  		intent.setType(Images.Media.CONTENT_TYPE);
+//			  		//intent.putExtra("crop","true");
+//			  		intent.setData(Images.Media.EXTERNAL_CONTENT_URI);
+//			  		startActivityForResult(intent, REQUEST_PHOTO_ALBUM);
 				}
+
+                public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults)
+                {
+                    switch (requestCode) {
+                        case PICK_FROM_GALLERY:
+                            // If request is cancelled, the result arrays are empty.
+                            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                                Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                startActivityForResult(galleryIntent, PICK_FROM_GALLERY);
+                            } else {
+                                //do something like displaying a message that he didn`t allow the app to access gallery and you wont be able to let him select from gallery
+                            }
+                            break;
+                    }
+                }
 				
 				private void takePicture() {
-			        File file = new File(CustomerDB.filepath);
-			        File file_gallery = new File(CustomerDB.filepath + "gallery" + customer.getIdx_customer() + "/");
-			        
-			        // If no folders
-			        if (!file.exists()) {
-			            file.mkdirs();
-			        }
-			        if (!file_gallery.exists()) {
-			            file.mkdirs();
-			        }
-			        
-			  		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-			  		file = new File(CustomerDB.filepath +  customer.getIdx_customer() + "_high.jpg");
-			  		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+
+					if (ActivityCompat.checkSelfPermission(CustomerViewActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+						ActivityCompat.requestPermissions(CustomerViewActivity.this, new String[]{Manifest.permission.CAMERA}, 4);
+					}else{
+
+						File file = new File(CustomerDB.filepath);
+						File file_gallery = new File(CustomerDB.filepath + "gallery" + customer.getIdx_customer() + "/");
+
+						// If no folders
+						if (!file.exists()) {
+							file.mkdirs();
+						}
+						if (!file_gallery.exists()) {
+							file.mkdirs();
+						}
+
+						Uri uri;
+						if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+							uri = Uri.fromFile(file);
+						}else{
+							uri = FileProvider.getUriForFile(context, "ts.utill.customermanager.fileprovider", file);
+						}
+
+						Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+						file = new File(CustomerDB.filepath +  customer.getIdx_customer() + "_high.jpg");
+						intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 			  		/*
 			  		file_gallery = new File(CustomerDB.filepath + "gallery" + customer.getIdx_customer() + "/" +  getNewGalleryNumber() +  ".jpg");
 			  		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file_gallery));
 			  		*/
-			  		startActivityForResult(intent, REQUEST_PICTURE);
-			  		
-			  		
+						startActivityForResult(intent, REQUEST_PICTURE);
+
+					}
 				}
 			
 				private void gallery() {
@@ -328,13 +380,13 @@ public class CustomerViewActivity extends AppCompatActivity{
 		return super.onOptionsItemSelected(item);
 	}
 
-
-
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   		super.onActivityResult(requestCode, resultCode, data);
   		
   		Log.d("TestG", " Data " +data);
-  		
+
+
+
    		if (requestCode == REQUEST_PICTURE) {
    			if(data == null){
 	  			String imagePath = CustomerDB.filepath + customer.getIdx_customer() + "_high.jpg";

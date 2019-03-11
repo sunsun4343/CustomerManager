@@ -1,8 +1,12 @@
 package ts.utill.customermanager;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +42,8 @@ public class CustomerListActivity extends AppCompatActivity {
     CustomerDB customerDB = CustomerDB.getInstence();
     UserSetting userSetting = UserSetting.getInstance();
 
+    private static final int REQUEST_EXTERNAL_STORAGE = 4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +54,25 @@ public class CustomerListActivity extends AppCompatActivity {
         Init_Setting();
 
         Init_View();
+
+        if (ActivityCompat.checkSelfPermission(CustomerListActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(CustomerListActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_EXTERNAL_STORAGE);
+        }
     }
+
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults)
+//    {
+//        switch (requestCode) {
+//            case REQUEST_EXTERNAL_STORAGE:
+//                // If request is cancelled, the result arrays are empty.
+//                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//
+//                } else {
+//                    //do something like displaying a message that he didn`t allow the app to access gallery and you wont be able to let him select from gallery
+//                }
+//                break;
+//        }
+//    }
 
     void Init_Setting(){
         SharedPreferences pref = getSharedPreferences("Pref_CustomerManager", 0);

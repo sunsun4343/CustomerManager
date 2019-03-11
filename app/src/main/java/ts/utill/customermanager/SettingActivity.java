@@ -172,29 +172,33 @@ public class SettingActivity extends AppCompatActivity{
 //				}
 //					break;
 				case 5: //csv가져오기
-					if(customerDB.getCustomerCnt() == 0 && customerDB.getItemList().size() == 0){
-						new AlertDialog.Builder(SettingActivity.this)
-						.setIcon(R.drawable.item)
-						.setTitle("CSV List")
-						.setSingleChoiceItems(getCSVFileList(), -1, new DialogInterface.OnClickListener() {
-
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								CSVImport(getCSVFileList()[which]);
-								dialog.cancel();
-							}
-						})
-						.create()
-						.show();
+					if (ActivityCompat.checkSelfPermission(SettingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+						ActivityCompat.requestPermissions(SettingActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
 					}else{
-						new AlertDialog.Builder(SettingActivity.this)
-						.setTitle(string.warning)
-						.setIcon(R.mipmap.warning)
-						.setMessage(string.needreset)
-						.show();
+
+						if(customerDB.getCustomerCnt() == 0 && customerDB.getItemList().size() == 0){
+							new AlertDialog.Builder(SettingActivity.this)
+									.setIcon(R.drawable.item)
+									.setTitle("CSV List")
+									.setSingleChoiceItems(getCSVFileList(), -1, new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(DialogInterface dialog, int which) {
+											CSVImport(getCSVFileList()[which]);
+											dialog.cancel();
+										}
+									})
+									.create()
+									.show();
+						}else{
+							new AlertDialog.Builder(SettingActivity.this)
+									.setTitle(string.warning)
+									.setIcon(R.mipmap.warning)
+									.setMessage(string.needreset)
+									.show();
+						}
+
 					}
-
-
 					break;
 //				case 7: //csv 외부전송
 //					new AlertDialog.Builder(SettingActivity.this)
@@ -230,44 +234,81 @@ public class SettingActivity extends AppCompatActivity{
 
 				case 6: //Json 내보내기
 				{
-					final LinearLayout layout = (LinearLayout)View.inflate(SettingActivity.this, R.layout.setting_dialog_input, null);
+					if (ActivityCompat.checkSelfPermission(SettingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+						ActivityCompat.requestPermissions(SettingActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
+					}else{
+						final LinearLayout layout = (LinearLayout)View.inflate(SettingActivity.this, R.layout.setting_dialog_input, null);
 
-					final EditText editText_setting_dialog = (EditText)layout.findViewById(R.id.editText_setting_dialog);
-					final TextView textView_setting_dialog_input = (TextView)layout.findViewById(R.id.textView_setting_dialog_input);
+						final EditText editText_setting_dialog = (EditText)layout.findViewById(R.id.editText_setting_dialog);
+						final TextView textView_setting_dialog_input = (TextView)layout.findViewById(R.id.textView_setting_dialog_input);
 
-					textView_setting_dialog_input.setText("저장위치 : " + customerDB.filepath);
+						textView_setting_dialog_input.setText("저장위치 : " + customerDB.filepath);
 
-					new AlertDialog.Builder(SettingActivity.this)
-							.setTitle(string.needfilename)
-							.setIcon(R.drawable.item)
-							.setView(layout)
-							.setPositiveButton(string.save,new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-									if(editText_setting_dialog.getText().toString().equals("")){
-										Toast.makeText(SettingActivity.this, "파일명을 입력해주세요.", Toast.LENGTH_LONG).show();
-									}else{
-										customerDB.JsonExport(SettingActivity.this,editText_setting_dialog.getText().toString());
+						new AlertDialog.Builder(SettingActivity.this)
+								.setTitle(string.needfilename)
+								.setIcon(R.drawable.item)
+								.setView(layout)
+								.setPositiveButton(string.save,new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int which) {
+										if(editText_setting_dialog.getText().toString().equals("")){
+											Toast.makeText(SettingActivity.this, "파일명을 입력해주세요.", Toast.LENGTH_LONG).show();
+										}else{
+											customerDB.JsonExport(SettingActivity.this,editText_setting_dialog.getText().toString());
+										}
+										SharedPreferences pref = getSharedPreferences("Pref_CustomerManager",0);
+										SharedPreferences.Editor edit = pref.edit();
+										Calendar c = new GregorianCalendar();
+										edit.putString("Backup_Date", customerDB.ToDateTime(c));
+										edit.commit();
 									}
-									SharedPreferences pref = getSharedPreferences("Pref_CustomerManager",0);
-									SharedPreferences.Editor edit = pref.edit();
-									Calendar c = new GregorianCalendar();
-									edit.putString("Backup_Date", customerDB.ToDateTime(c));
-									edit.commit();
-								}
 
-							})
-							.setNegativeButton(string.cancel, new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-								}
-							})
-							.show();
+								})
+								.setNegativeButton(string.cancel, new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int which) {
+									}
+								})
+								.show();
+					}
+
 				}
 
 
 
 						break;
 				case 7: // Json 가져오기
-					if(customerDB.getCustomerCnt() == 0 && customerDB.getItemList().size() == 0){
+
+					if (ActivityCompat.checkSelfPermission(SettingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+						ActivityCompat.requestPermissions(SettingActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
+					}else{
+
+						if(customerDB.getCustomerCnt() == 0 && customerDB.getItemList().size() == 0){
+							new AlertDialog.Builder(SettingActivity.this)
+									.setIcon(R.drawable.item)
+									.setTitle("Json List")
+									.setSingleChoiceItems(getJsonFileList(), -1, new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(DialogInterface dialog, int which) {
+											JsonImport(getJsonFileList()[which]);
+											dialog.cancel();
+										}
+									})
+									.create()
+									.show();
+						}else{
+							new AlertDialog.Builder(SettingActivity.this)
+									.setTitle(string.warning)
+									.setIcon(R.mipmap.warning)
+									.setMessage(string.needreset)
+									.show();
+						}
+					}
+
+						break;
+				case 8: //Json 외부전송
+					if (ActivityCompat.checkSelfPermission(SettingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+						ActivityCompat.requestPermissions(SettingActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
+					}else{
 						new AlertDialog.Builder(SettingActivity.this)
 								.setIcon(R.drawable.item)
 								.setTitle("Json List")
@@ -275,34 +316,14 @@ public class SettingActivity extends AppCompatActivity{
 
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
-										JsonImport(getJsonFileList()[which]);
+										Intent_ACTIONSEND(getJsonFileList()[which].toString());
 										dialog.cancel();
 									}
 								})
 								.create()
 								.show();
-					}else{
-						new AlertDialog.Builder(SettingActivity.this)
-								.setTitle(string.warning)
-								.setIcon(R.mipmap.warning)
-								.setMessage(string.needreset)
-								.show();
 					}
-						break;
-				case 8: //Json 외부전송
-					new AlertDialog.Builder(SettingActivity.this)
-					.setIcon(R.drawable.item)
-					.setTitle("Json List")
-					.setSingleChoiceItems(getJsonFileList(), -1, new DialogInterface.OnClickListener() {
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							Intent_ACTIONSEND(getJsonFileList()[which].toString());
-							dialog.cancel();
-						}
-					})
-					.create()
-					.show();
 					break;
 
 //				case 9: //csv 편집

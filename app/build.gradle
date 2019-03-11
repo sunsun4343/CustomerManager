@@ -6,8 +6,8 @@ android {
         applicationId "ts.utill.customermanager"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 19
-        versionName "2.9"
+        versionCode 20
+        versionName "3.0"
     }
     buildTypes {
         release {
