@@ -384,6 +384,29 @@ public class CustomerDB {
 		}
 	}
 
+
+	public String JsonExport(Context context){
+		try {
+			CustomerDBJson customerDBJson = new CustomerDBJson();
+			customerDBJson.DATABASE_VERSION = CustomerDBHelper.DATABASE_VERSION;
+			customerDBJson.CustomersList = CustomersList;
+			customerDBJson.ItemList = ItemList;
+			customerDBJson.ItemGroupList = ItemGroupList;
+
+			Gson gson = new GsonBuilder().create();
+
+			String json = gson.toJson(customerDBJson);
+			return json;
+
+		} catch (Throwable t) {
+			Toast.makeText(context, "오류가 발생하여 추출하지 못했습니다. 개발자에게 문의 하세요. \n" + "Err " + t.toString(), Toast.LENGTH_LONG).show();
+			Log.d("TestG", "Err " + t.toString());
+		}
+
+		return "오류";
+	}
+
+
 	private String BanJumCheck(String str){
 
 		String ban = "、";

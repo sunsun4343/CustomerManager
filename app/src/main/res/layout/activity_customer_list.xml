@@ -83,13 +83,19 @@
         </ListView>
 
 
+        <!--<com.kakao.adfit.ads.ba.BannerAdView-->
+            <!--android:id="@+id/adview"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--clientId="DAN-1h7iozq3woyt4"-->
+            <!--requestInterval="60"/>-->
+
         <com.kakao.adfit.ads.ba.BannerAdView
             android:id="@+id/adview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            clientId="DAN-1h7iozq3woyt4"
-            requestInterval="60"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
